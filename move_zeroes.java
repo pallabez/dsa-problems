@@ -4,18 +4,19 @@ import java.util.Arrays;
 
 class Solution {
     public void moveZeroes(int[] nums) {
-        int zeroCount = 0;
-
-        for (int el : nums) {
-            if (el == 0) {
-                zeroCount++;
-            }
+        int i = 0, j = 1;
+        while (i < nums.length && nums[i] != 0) {
+            i++;
+            j++;
         }
 
-        int i = 0, j = 0;
 
         while (j < nums.length) {
-            
+            if (nums[j] != 0) {
+                swap(nums, i, j);
+                i++;
+            }
+            j++;
         }
     }
 
@@ -28,7 +29,9 @@ class Solution {
 
 public class move_zeroes {
     public static void main(String[] args) {
-        int[] arr = new int[]{ 0, 1, 0, 3, 12 };
+        // int[] arr = new int[]{ 0, 1, 0, 3, 12 };
+        // int[] arr = new int[]{ 1, 1, 0, 0, 12 };
+        int[] arr = new int[]{ 1 };
 
         new Solution().moveZeroes(arr);
 
